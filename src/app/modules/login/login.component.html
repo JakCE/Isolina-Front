@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="app-login w-full flex items-start justify-center" style="height: 100vh;">
+    <div class="logo-first flex items-center justify-center">
+        <img src="./logo-isolina.png" alt="Logo Isolina" class="">
+    </div>
+    <div class="contenido-login flex flex-col items-center justify-center">
+        <div class="titulo-login w-full text-center pb-5">
+            <h2 class="pb-5 pt-5">Isolina</h2>
+            <h1 class="pb-5">Iniciar sesión</h1>
+            <!-- <tui-notification
+            status="error"
+            [hasIcon]="true"
+            (close)="true"
+            >
+            Some content
+            </tui-notification> -->
+        </div>
+        <div class="form-login w-72 pb-10" [formGroup]="loginForm">
+            <tui-input formControlName="usuario" tuiMode="onDark">
+                Ingrese su usuario
+                <input tuiTextfield/>
+            </tui-input><br>
+            <tui-input-password formControlName="contraseña" tuiMode="onDark">Ingrese su contraseña</tui-input-password>
+        </div>
+        <button class="w-60 p-2 font-bold rounded-lg" (click)="logIn()">Iniciar Sesión</button>
+    </div>
+</div>

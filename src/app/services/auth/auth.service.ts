@@ -15,7 +15,7 @@ export class AuthService {
   ) { }
 
   postLogin(request: any) {
-    let assign = `${this.apiURL}/api/login`
+    let assign = `${this.apiURL}/api/auth/login`
     return this.http.post<any>(assign, request)
   }
   isAuth():boolean{

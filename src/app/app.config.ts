@@ -1,4 +1,5 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { TuiRootModule, tuiNotificationOptionsProvider } from "@taiga-ui/core";
+import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -13,8 +14,12 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     provideHttpClient(withInterceptors([TokenInterceptor])),
-    provideHttpClient(),
     provideAnimations(),
-    JwtHelperService
+    JwtHelperService,
+    importProvidersFrom(TuiRootModule),
+    tuiNotificationOptionsProvider({
+      icon: 'tuiIconHelpCircle',
+      status: 'warning',
+    }),
   ]
 };
