@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+}
+.app-menu{
+    width: 200px;
+}
+.app-content{
+    width: calc(100% - 200px);
+    background-color: #212121;
+    border-radius: 1.5rem 1.5rem 0 0;
+    height: calc(100vh - 80px);
+    overflow: auto;
+}
+
+
+
+/* SCROLLBAR */
+/* Estilo del Track (fondo de la barra de desplazamiento) */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+    
+  /* Estilo del Track (fondo de la barra de desplazamiento) */
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Puedes cambiar el color de fondo según tus preferencias */
+  }
+    
+  /* Estilo del Handle (la parte móvil de la barra de desplazamiento) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #b6b6b6; /* Puedes cambiar el color según tus preferencias */
+    border-radius: 6px; /* Puedes ajustar el radio de borde según tus preferencias */
+  }
+    
+  /* Estilo del Handle cuando está en hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #848484; /* Puedes cambiar el color de hover según tus preferencias */
+  }

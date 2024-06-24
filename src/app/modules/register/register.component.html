@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class="app-register bg-black w-full flex items-center justify-center" style="height: 100vh;">
+    <div class="contenido-register overflow-hidden rounded-2xl flex flex-col items-center justify-center">
+        <div class="logo-first flex items-center justify-center">
+            <img src="./img/logo-isolina.png" alt="Logo Isolina" class="">
+        </div>
+        <div class="titulo-register w-full text-center pb-5">
+            <h1 class="pb-5 pt-5">Registro</h1>
+            <!-- <tui-notification
+            status="error"
+            [hasIcon]="true"
+            (close)="true"
+            >
+            Some content
+            </tui-notification> -->
+        </div>
+        <div class="flex flex-wrap w-full justify-center" [formGroup]="registerForm">
+            <div class="form-register flex flex-wrap justify-evenly gap-4 pb-6">
+                <div class="w-80 flex items-center justify-start gap-2">
+                    <div class="w-64">
+                        <tui-input-number class="w-64" formControlName="dniControl" tuiMode="onDark">
+                            ingrese su número de DNI
+                        </tui-input-number>
+                    </div>
+                    <div>
+                        <div class="w-10 text-3xl cursor-pointer" (click)="searchDni()">🔎</div>
+                    </div>
+                </div>
+                <tui-input class="w-80" formControlName="nameControl" tuiMode="onDark">
+                    Ingrese su nombre
+                    <input tuiTextfield/>
+                </tui-input>
+                <tui-input class="w-80" formControlName="apeControl" tuiMode="onDark">
+                    Ingrese sus apellidos
+                    <input tuiTextfield/>
+                </tui-input>
+                <tui-input class="w-80" formControlName="emailControl" tuiMode="onDark" type="email" autocomplete="email">
+                    Ingrese su Email
+                    <input tuiTextfield/>
+                </tui-input>
+                <tui-input-phone-international class="w-80"
+                    formControlName="telefonoControl"
+                    [countries]="(countries) || []"
+                    [(countryIsoCode)]="countryIsoCode"
+                    tuiMode="onDark"
+                >
+                    Ingrese su telefono
+                </tui-input-phone-international>
+                <tui-input class="w-80" formControlName="direccionControl" tuiMode="onDark">
+                    Ingrese su direccion
+                    <input tuiTextfield/>
+                </tui-input>
+                <tui-input-password class="w-80" formControlName="passControl" tuiMode="onDark">Ingrese su contraseña</tui-input-password>
+            </div>
+        </div>
+        <small>¿Ya tienes una cuenta? Inicia sesión <a class="underline" routerLink='/login'>aquí</a></small>
+        <button class="mt-5 w-60 p-2 font-bold rounded-lg" (click)="registrarUser()">Registrarme</button>
+    </div>
+</div>

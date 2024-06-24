@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<div class="w-full bg-black text-white block items-start justify-start" style="height: 100vh;">
+    <div class="w-full bg-white shadow-lg fixed" style="height: 80px;">
+        <app-bar-top [name]="nameUser"></app-bar-top>
+    </div>
+    <div class="w-full h-20"></div>
+    <div class="w-full flex items-start justify-start">
+        <div class="app-menu">
+            <app-nav-menu></app-nav-menu>
+        </div>
+        <div class="app-content w-full">
+            <router-outlet />
+        </div>
+    </div>
+</div>

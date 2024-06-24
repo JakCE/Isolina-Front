@@ -1,0 +1,114 @@
+<div class="app-sedes text-white w-full flex flex-col items-start justify-start px-10 gap-8" style="height: calc(100vh - 80px);">
+    <div class="header-module border-b w-full h-20 flex items-center justify-center">
+        @if(!addNew && !isEdit){
+            <h1 class="text-center">LISTA DE SEDES</h1>
+        }
+        @if(addNew && !isEdit){
+            <h1 class="text-center">REGISTRAR SEDES</h1>
+        }
+        @if(!addNew && isEdit){
+            <h1 class="text-center">EDITAR SEDE</h1>
+        }
+    </div>
+    @if(addNew || isEdit){
+        <div class="flex flex-col flex-wrap w-full justify-center" [formGroup]="sedeForm">
+            <div class="form-register flex flex-wrap justify-evenly gap-4 pb-6">
+                <tui-input class="w-80" formControlName="descControl" tuiMode="onDark">
+                    {{ addNew ? 'Ingrese la descripción de la nueva sede' : 'Ingrese la nueva descripción de la sede' }}
+                    <input tuiTextfield/>
+                </tui-input>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 pb-6">
+                <button
+                    appearance="primary"
+                    tuiButton
+                    type="button"
+                    class="tui-space_right-3 tui-space_bottom-3 w-36"
+                    (click)="addNew ? registrarSede() : updateSede()"
+                >
+                    {{ addNew ? '+ Nuevo' : 'Editar' }}
+                </button>
+                <button
+                    appearance="custom"
+                    tuiButton
+                    type="button"
+                    class="tui-space_right-3 tui-space_bottom-3 w-36"
+                    (click)="addNew = false; isEdit = false; limpiar()"
+                >
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    }@else {
+    <!--  -->
+    <div class="w-full flex flex-col items-start justify-center">
+        <div class="filter-cont w-full flex items-center justify-evenly">
+            <div class="flex items-center justify-center w-1/3">
+                <p class="px-4">Filtrar por: </p>
+                <tui-tag
+                    size="l"
+                    class="tui-space_left-1"
+                    value="NOMBRES"
+                ></tui-tag>
+            </div>
+            <div class="w-1/3 flex items-center justify-center">
+                <tui-input class="w-80" tuiMode="onDark">
+                    Filtrar...
+                    <input tuiTextfield />
+                </tui-input>
+            </div>
+            <div class="w-1/3 flex items-center justify-center">
+                <button
+                    appearance="primary"
+                    tuiButton
+                    type="button"
+                    class="tui-space_right-3 tui-space_bottom-3 w-36"
+                    (click)="addNew = true"
+                >
+                    + Nuevo
+                </button>
+            </div>
+        </div>
+        <div class="table-app flex w-full items-center justify-center my-10">
+            <table tuiTable class="table w-full">
+                <thead>
+                  <tr tuiThGroup>
+                    <th tuiTh>N°</th>
+                    <th tuiTh>DESCRIPCIÓN</th>
+                    <th tuiTh>FECHA DE REGISTRO</th>
+                    <th tuiTh>ACCIONES</th>
+                  </tr>
+                </thead>
+                <tbody tuiTbody>
+                  <tr *ngFor="let item of data; let i = index" tuiTrGroup>
+                    <td tuiTd>{{ i + 1 }}</td>
+                    <td tuiTd>{{ item.Descripcion }}</td>
+                    <td tuiTd>{{ item.Fecha_Registro }}</td>
+                    <td tuiTd>
+                        <div class="flex flex-wrap gap-2">
+                            <div tuiHint="Editar" class="w-8 h-8 flex justify-center items-center cursor-pointer rounded mx-2" 
+                            style="border: 1px solid white;" (click)="assignUpdate(item)">
+                                <tui-svg src="tuiIconEdit"></tui-svg>
+                            </div>
+                            <div tuiHint="Eliminar" class="w-8 h-8 flex justify-center items-center cursor-pointer rounded mx-2" 
+                            style="border: 1px solid white;" (click)="deleteSede(item.SedeID)">
+                                <tui-svg src="tuiIconTrash"></tui-svg>
+                            </div>
+                        </div>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination w-full flex items-center justify-around mb-5">
+            <p>Páginas <span class="pag-data">{{ length }}</span></p>
+            <p>Items por página <span class="pag-data">{{minRow}} - {{maxRow}}</span> de <span class="pag-data">{{ totRows }}</span></p>
+            <tui-pagination
+                [index]="index"
+                [length]="length"
+                (indexChange)="goToPage($event)"
+            ></tui-pagination>
+        </div>
+    </div>
+    }
+</div>

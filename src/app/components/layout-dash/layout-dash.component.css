@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Signika Negative', sans-serif;
+    font-size: .95rem;
+}
+.app-dash{
+    height: calc(100vh - 80px);
+}
+h1{
+    font-size: 2rem;
+}

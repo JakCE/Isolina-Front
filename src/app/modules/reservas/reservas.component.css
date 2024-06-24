@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Signika Negative', sans-serif;
+    color: white;
+}
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #526ED3;
+}
+h2{
+    font-size: 1.1rem;
+}
+.app-reservas{
+    background-color: #e9e9e9;
+}
+.contenido-stepper{
+    background-color: #212121;
+    /* 212121 */
+}
+.card-local{
+    background-color: #2d2d2d;
+}

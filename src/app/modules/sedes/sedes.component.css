@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Signika Negative', sans-serif;
+    color: white;
+}
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+}
+h2{
+    font-size: 1.1rem;
+}
+.header-module{
+    border-color: #B5B5B5;
+    /* & h1{
+        color: #48A8FF;
+    } */
+}
+thead, tr, th, td{
+    background-color: #454545;
+    color: #B5B5B5;
+    border-color: #B5B5B5;
+}
+button{
+    background-color: tomato;
+}
